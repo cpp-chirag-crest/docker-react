@@ -1,0 +1,9 @@
+sudo: require
+services: 
+  - docker
+
+before_install:
+  - docker build -t crestdocker/docker-react -f Dockerfile.dev . 
+
+script:
+  - docker run crestdocker/docker-react npm run test -- --coverage
